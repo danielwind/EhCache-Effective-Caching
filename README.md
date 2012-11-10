@@ -1,7 +1,7 @@
-EhCache How To: Effective Caching
-=================================
+#EhCache How To: Effective Caching
 
-EhCache Effective Caching Book Source Code
+
+##Book Source Code
 http://www.packtpub.com/
 
 The MIT License (MIT)
