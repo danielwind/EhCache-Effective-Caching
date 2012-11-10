@@ -1,5 +1,5 @@
-EhCache-Effective-Caching
-=========================
+EhCache How To: Effective Caching
+=================================
 
 EhCache Effective Caching Book Source Code
 http://www.packtpub.com/
