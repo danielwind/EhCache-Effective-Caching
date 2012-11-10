@@ -1,8 +1,7 @@
-##Chapter 3
-###EhCache Spring Integration
+#Chapter 3
+##EhCache Spring Integration
 
 author: <daniel.wind.m@gmail.com>
-EhCache-Effective-Caching Book Source Code
 
 In this chapter we will cover the following topics:
 
