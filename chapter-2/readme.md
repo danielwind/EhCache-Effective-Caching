@@ -1,6 +1,5 @@
 # Chapter 2
 ## EhCache Configuration Patterns
----
 
 author: <daniel.wind.m@gmail.com>
 
