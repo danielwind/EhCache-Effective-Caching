@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.danielwind.effcaching</groupId>
+  <artifactId>ehcache-configuration</artifactId>
+  <version>1.0.0</version>
+  <packaging>war</packaging>
+  <name>sample-chapter2</name>
+  <description>This project is the source code reference for recipe number two in the book EhCache How To: Effective Caching. For further references please visit http://www.packtpub.com</description>
+  <url>https://github.com/danielwind/EhCache-Effective-Caching</url>
+  
+  <dependencies>
+  	
+  	<dependency>
+  		<groupId>net.sf.ehcache</groupId>
+  		<artifactId>ehcache</artifactId>
+  		<version>2.6.0</version>
+  		<type>pom</type>
+  	</dependency>
+  	
+  	<dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.0.1</version>
+        <scope>provided</scope>
+	</dependency>
+  
+  </dependencies>
+  
+  <!-- 
+  	Adding maven compiler plugin with JRE 1.6 
+  	because of Eclipse complaints (JRE 1.5) to
+  	include reference to Servlets API 3.0
+  -->
+  <build>
+	  <plugins>
+	    <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-compiler-plugin</artifactId>          
+	        <configuration>
+	            <source>1.6</source>
+	            <target>1.6</target>
+	        </configuration>
+	    </plugin>
+	  </plugins>
+</build>
+  
+</project>

@@ -10,6 +10,8 @@ In this chapter we will cover the following topics:
 * Declarative Configuration through XML
 * Programmatic Configuration through CacheConfiguration Class
 
+All these concepts are going to be uniquely exposed by constructing a Cache Factory Monitor application. This project is intended to provide a simple means to create, analyze and delete cached objects as well as configuring dynamic properties through a simple web interface.
+
 ---
 _If you do not want to use Maven (or your project simply does not require it), EhCache library can be obtained directly from their official website <http://ehcache.org/downloads/catalog> (as of writing of this book), in which you will want to download ehcache-2.6.0-distribution.tar.gz (current version as of this writing). You can also see the additional modules section which we will be visiting frequently as you progress in this book._
 
