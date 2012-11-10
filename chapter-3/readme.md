@@ -3,8 +3,6 @@
 
 author: <daniel.wind.m@gmail.com>
 
-EhCache-Effective-Caching Book Source Code
-
 In this chapter we will cover the following topics:
 
 * Including EhCache in a Spring-based Project
