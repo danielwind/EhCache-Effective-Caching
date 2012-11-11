@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ehcache>
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:noNamespaceSchemaLocation="ehcache.xsd" 
+         updateCheck="true" monitoring="autodetect" 
+         dynamicConfig="true">
+         
 	<cache name="sampleCacheXml"
 		maxElementsInMemory="500"
 		eternal="false"
@@ -7,4 +12,5 @@
 		timeToLiveSeconds="300"
 		overflowToDisk="false"
 	/>
+	
 </ehcache>

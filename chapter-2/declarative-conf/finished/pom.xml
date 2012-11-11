@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.danielwind.effcaching</groupId>
   <artifactId>ehcache-configuration</artifactId>
@@ -26,13 +28,10 @@
   
   </dependencies>
   
-  <!-- 
-  	Adding maven compiler plugin with JRE 1.6 
-  	because of Eclipse complaints (JRE 1.5) to
-  	include reference to Servlets API 3.0
-  -->
   <build>
 	  <plugins>
+	  
+	  <!-- Maven Compiler Plugin -->
 	    <plugin>
 	        <groupId>org.apache.maven.plugins</groupId>
 	        <artifactId>maven-compiler-plugin</artifactId>          
@@ -41,6 +40,18 @@
 	            <target>1.6</target>
 	        </configuration>
 	    </plugin>
+	    
+	    <!-- Maven Tomcat Plugin -->
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<configuration>
+					<url>http://127.0.0.1:8080/manager</url>
+					<server>Tomcat</server>
+					<path>/chapter2</path>
+				</configuration>
+			</plugin>
+	    
 	  </plugins>
 </build>
   
