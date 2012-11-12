@@ -1,4 +1,4 @@
-package net.danielwind.effcaching.servlets;
+package net.danielwind.effcaching.source;
 
 /**
  * @author Daniel Wind (daniel.wind.m@gmail.com)
@@ -17,24 +17,29 @@ package net.danielwind.effcaching.servlets;
  * THE SOFTWARE.
  */
 
+import java.util.Timer;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-
-@WebServlet("/data/manager")
-public class DataManagerServlet extends HttpServlet {
-
-	private static final long serialVersionUID = 1L;
+public final class SimulateDAO {
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+	//number of seconds to simulate delay
+	private static final int delayInSeconds = 10;
+	
+	private static Timer timer;
+	
+	/**
+	 * Method to simulate a high load query for sample data.
+	 * This method invokes a 10 seconds timer that simulates
+	 * a very long running query... 
+	 * @return String[] representing a set of 3 strings
+	 */
+	public static String[] getSampleData(){
 		
-	}
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+		timer = new Timer();
+		timer.schedule(new SampleDataTask(), delayInSeconds*1000);
 		
+		String[] dataSample = new String[]{"somedata1", "somedata2", "somedata3"};
+		
+		return dataSample;
 	}
-	
+
 }

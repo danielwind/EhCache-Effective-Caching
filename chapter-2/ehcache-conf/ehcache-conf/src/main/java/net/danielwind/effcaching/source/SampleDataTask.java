@@ -1,4 +1,4 @@
-package net.danielwind.effcaching.listeners;
+package net.danielwind.effcaching.source;
 
 /**
  * @author Daniel Wind (daniel.wind.m@gmail.com)
@@ -17,36 +17,14 @@ package net.danielwind.effcaching.listeners;
  * THE SOFTWARE.
  */
 
-import javax.servlet.ServletContextEvent;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+import java.util.TimerTask;
 
-/**
- * Application Lifecycle Listener
- *
- */
-@WebListener
-public class ContextLifecycleListener implements ServletContextListener {
+public class SampleDataTask extends TimerTask {
 
-    /**
-     * Default constructor. 
-     */
-    public ContextLifecycleListener() {
-        
-    }
+	@Override
+	public void run() {
+		
+		System.out.println("Simulating a very difficult task for retrieving data...");
+	}
 
-	/**
-     * @see ServletContextListener#contextInitialized(ServletContextEvent)
-     */
-    public void contextInitialized(ServletContextEvent sce) {
-        
-    }
-
-	/**
-     * @see ServletContextListener#contextDestroyed(ServletContextEvent)
-     */
-    public void contextDestroyed(ServletContextEvent sce) {
-        
-    }
-	
 }
