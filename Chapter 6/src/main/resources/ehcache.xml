@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd"
+         updateCheck="false" 
+         monitoring="off"
+         dynamicConfig="true"> 
+         
+	<cache name="employeeCache" maxElementsInMemory="100" eternal="true" overflowToDisk="false">
+		<!-- Adding EhCache searchable capabilities -->
+		<searchable> 
+			<searchAttribute name="firstname" expression="value.getFirstName()"/>
+			<!-- Adding a custom attribute extractor for performance reason (not used) -->
+			<searchAttribute name="lastname" class="net.danielwind.effcaching.chapter6.cache.LastNameAttributeExtractor"/> 
+			<searchAttribute name="profile" expression="value.getProfile()"/>
+			<searchAttribute name="social" expression="value.getSocialNumber()"/>
+			
+			<!-- Profile Children Nodes -->
+			<searchAttribute name="department" expression="value.getProfile().getDepartment()"/>
+			<searchAttribute name="role" expression="value.getProfile().getRole()"/>
+			<searchAttribute name="salary" expression="value.getProfile().getSalary()"/>	
+		</searchable>
+	</cache>
+</ehcache>

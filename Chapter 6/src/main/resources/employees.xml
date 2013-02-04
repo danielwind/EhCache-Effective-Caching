@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- List of employees -->
+<employeeList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="employees.xsd">
+	
+	<employee>
+		<firstName>Maurice</firstName>
+		<lastName>Moss</lastName>
+		<socialNumber>310-98-1231</socialNumber>
+		<profile>
+			<department>Engineering</department>
+			<role>Engineer</role>
+			<salary>90000</salary>
+		</profile>
+	</employee>
+	
+	<employee>
+		<firstName>Roy</firstName>
+		<lastName>Trenneman</lastName>
+		<socialNumber>412-23-1222</socialNumber>
+		<profile>
+			<department>Engineering</department>
+			<role>Engineer</role>
+			<salary>90000</salary>
+		</profile>
+	</employee>
+
+	<employee>
+		<firstName>John</firstName>
+		<lastName>Mayer</lastName>
+		<socialNumber>078-06-1120</socialNumber>
+		<profile>
+			<department>Engineering</department>
+			<role>Engineer</role>
+			<salary>90000</salary>
+		</profile>
+	</employee>
+	
+	<employee>
+		<firstName>Jen</firstName>
+		<lastName>Barber</lastName>
+		<socialNumber>078-07-1121</socialNumber>
+		<profile>
+			<department>Engineering</department>
+			<role>Manager</role>
+			<salary>120000</salary>
+		</profile>
+	</employee>
+	
+	<employee>
+		<firstName>Danielle</firstName>
+		<lastName>Romulli</lastName>
+		<socialNumber>065-12-0912</socialNumber>
+		<profile>
+			<department>Human Resources</department>
+			<role>Manager</role>
+			<salary>120000</salary>
+		</profile>
+	</employee>
+	
+	<employee>
+		<firstName>Susan</firstName>
+		<lastName>Jalisco</lastName>
+		<socialNumber>120-31-0981</socialNumber>
+		<profile>
+			<department>Engineering</department>
+			<role>Engineer</role>
+			<salary>90000</salary>
+		</profile>
+	</employee>
+
+	<employee>
+		<firstName>George Bernard</firstName>
+		<lastName>Shaw</lastName>
+		<socialNumber>901-09-1343</socialNumber>
+		<profile>
+			<department>Accounting</department>
+			<role>Manager</role>
+			<salary>100000</salary>
+		</profile>
+	</employee>
+	
+	<employee>
+		<firstName>Richmond</firstName>
+		<lastName>Avenal</lastName>
+		<socialNumber>912-90-1231</socialNumber>
+		<profile>
+			<department>Engineering</department>
+			<role>Engineer</role>
+			<salary>85000</salary>
+		</profile>
+	</employee>
+	
+	<employee>
+		<firstName>Taylor</firstName>
+		<lastName>Swift</lastName>
+		<socialNumber>013-91-6789</socialNumber>
+		<profile>
+			<department>Human Resources</department>
+			<role>Operator</role>
+			<salary>75000</salary>
+		</profile>
+	</employee>
+	
+	<employee>
+		<firstName>Chris</firstName>
+		<lastName>Martin</lastName>
+		<socialNumber>921-13-7812</socialNumber>
+		<profile>
+			<department>Accounting</department>
+			<role>Assistant</role>
+			<salary>70000</salary>
+		</profile>
+	</employee>
+	
+	<employee>
+		<firstName>Oprah</firstName>
+		<lastName>Winfrey</lastName>
+		<socialNumber>091-01-1919</socialNumber>
+		<profile>	
+			<department>Human Resources</department>
+			<role>Assistant</role>
+			<salary>85000</salary>
+		</profile>
+	</employee>
+	
+	<employee>
+		<firstName>Tom</firstName>
+		<lastName>Hanks</lastName>
+		<socialNumber>100-01-8978</socialNumber>
+		<profile>
+			<department>Engineering</department>
+			<role>Engineer</role>
+			<salary>95000</salary>
+		</profile>
+	</employee>
+	
+</employeeList>
