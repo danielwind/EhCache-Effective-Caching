@@ -3,4 +3,5 @@
 # Package Files #
 *.jar
 *.war
-*.ear
+*.ear 
+.DS_STORE
