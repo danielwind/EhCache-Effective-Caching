@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping>
+	<class entity-name="Movies" name="net.danielwind.effcaching.chapter5.persistence.movies" table="Movies">
+		
+		<id name="id" type="int">
+			<column name="" precision="5" scale="0" />
+			<generator class="assigned" />
+		</id>
+		
+		<property name="title" type="string">
+			<column name="" length="" not-null="true" />
+		</property>
+		
+		<property name="director" type="string">
+			<column name="" length="" not-null="true" />
+		</property>
+		
+		<property name="company" type="string">
+			<column name="" length="" not-null="true" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

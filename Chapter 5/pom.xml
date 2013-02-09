@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.danielwind.effcaching</groupId>
+  <artifactId>chapter5</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  <!--Project Information -->
+  <name>Chapter 5</name>
+  <description>EhCache Hibernate Second Level Caching</description>
+  <url>https://github.com/danielwind/EhCache-Effective-Caching</url>
+  <inceptionYear>2013</inceptionYear>
+  <licenses>
+  	<license>
+  		<name>The MIT License (MIT) Copyright (c) 2012</name>
+  		<url>http://opensource.org/licenses/MIT</url>
+  		<distribution>repository</distribution>
+  		<comments>Open Source Distribution License</comments>
+  	</license>
+  </licenses>
+  <organization>
+  	<name>PacktPub Editorial</name>
+  	<url>http://www.packtpub.com</url>
+  </organization>
+  <developers>
+  	<developer>
+  		<id>daniel.wind</id>
+  		<name>Daniel Wind</name>
+  		<email>daniel.wind.m@gmail.com</email>
+  		<url>http://www.danielwind.net</url>
+  		<roles>
+  			<role>Architect</role>
+  			<role>Educator</role>
+  		</roles>
+  	</developer>
+  </developers>
+  <scm>
+    <connection>scm:git@github.com:danielwind/EhCache-Effective-Caching.git</connection>
+    <developerConnection>scm:git@github.com:danielwind/EhCache-Effective-Caching.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/danielwind/EhCache-Effective-Caching</url>
+  </scm>
+  <build>
+   <plugins>
+	   <plugin>
+	    <artifactId>maven-compiler-plugin</artifactId>
+	    <version>2.0.2</version>
+	    <configuration>
+	      <source>1.7</source>
+	      <target>1.7</target>
+	    </configuration>
+	   </plugin>
+	   <plugin>
+	    <groupId>org.codehaus.mojo</groupId>
+	    <artifactId>exec-maven-plugin</artifactId>
+	    <configuration>
+	      <mainClass>net.danielwind.effcaching.chapter5.impl.Main</mainClass>
+	    </configuration>
+	   </plugin>
+   </plugins>
+  </build>
+  
+  <!-- JBoss repository for Hibernate -->
+  <repositories>
+	<repository>
+		<id>JBoss repository</id>
+		<url>http://repository.jboss.org/nexus/content/groups/public/</url>
+	</repository>
+  </repositories>
+  
+  <dependencies>
+  
+  	<dependency>
+  		<groupId>net.sf.ehcache</groupId>
+  		<artifactId>ehcache</artifactId>
+  		<version>2.6.0</version>
+  		<type>pom</type>
+  	</dependency>
+  	
+  	<dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.6.1</version>
+        <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-jdk14</artifactId>
+        <version>1.6.1</version>
+        <scope>compile</scope>
+    </dependency>
+    
+  	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.17</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>hsqldb</groupId>
+		<artifactId>hsqldb</artifactId>
+		<version>1.8.0.10</version>
+	</dependency> 
+	<!-- Hibernate framework -->
+	<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>3.6.3.Final</version>
+	</dependency>
+	    
+  </dependencies>
+</project>
