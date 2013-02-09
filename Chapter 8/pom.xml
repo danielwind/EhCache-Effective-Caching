@@ -53,7 +53,7 @@
 	    <groupId>org.codehaus.mojo</groupId>
 	    <artifactId>exec-maven-plugin</artifactId>
 	    <configuration>
-	      <mainClass>net.danielwind.effcaching.chapter6.impl.Main</mainClass>
+	      <mainClass>net.danielwind.effcaching.chapter8.impl.Main</mainClass>
 	    </configuration>
 	   </plugin>
    </plugins>

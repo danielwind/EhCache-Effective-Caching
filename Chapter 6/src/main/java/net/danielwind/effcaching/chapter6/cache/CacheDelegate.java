@@ -30,7 +30,7 @@ public final class CacheDelegate {
 	private Cache cache; 
 	
 	/**
-	 * Initialize the Cache Layer configuration upon class instantiation
+	 * Constructor -- Initialize Cache Layer (EhCache)
 	 */
 	public CacheDelegate() {
 		 log.debug("-------- Configuring EhCache Delegate Class ---------");

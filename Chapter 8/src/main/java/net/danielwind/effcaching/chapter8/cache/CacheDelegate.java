@@ -36,7 +36,7 @@ public final class CacheDelegate {
 		
 		//create request payload to EhCache Server (PUT)
 		HttpPut putRequest = new HttpPut(CACHE_SERVER_URL);
-		putRequest.setHeader("Content-Type", "text/plain");
+		putRequest.setHeader("Content-Type", "application/x-java-serialized-object");
 		putRequest.setEntity(new ByteArrayEntity(itemToByteArray));
 		
 		//send the full request to EhCache Server

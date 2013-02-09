@@ -6,7 +6,7 @@
   
   <!--Project Information -->
   <name>Chapter 6</name>
-  <description>EhCache Search API Example</description>
+  <description>EhCache Search API Implementation</description>
   <url>https://github.com/danielwind/EhCache-Effective-Caching</url>
   <inceptionYear>2013</inceptionYear>
   <licenses>

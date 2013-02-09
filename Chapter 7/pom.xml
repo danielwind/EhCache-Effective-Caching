@@ -6,7 +6,7 @@
   
   <!--Project Information -->
   <name>Chapter 7</name>
-  <description>Custom Eviction Algorithm</description>
+  <description>EhCache Custom Eviction Algorithm</description>
   <url>https://github.com/danielwind/EhCache-Effective-Caching</url>
   <inceptionYear>2013</inceptionYear>
   <licenses>
@@ -53,7 +53,7 @@
 	    <groupId>org.codehaus.mojo</groupId>
 	    <artifactId>exec-maven-plugin</artifactId>
 	    <configuration>
-	      <mainClass>net.danielwind.effcaching.chapter6.impl.Main</mainClass>
+	      <mainClass>net.danielwind.effcaching.chapter7.impl.Main</mainClass>
 	    </configuration>
 	   </plugin>
    </plugins>
