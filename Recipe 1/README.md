@@ -1,6 +1,6 @@
 ####EhCache Effective Caching: How-To
 ##Recipe 1 (Configuration Patterns)
----
+
 In this recipe you will be shown how to configure EhCache within your application. Commonly there are two ways of proceeding with the actual configuration:
 
 - Programmatically (Custom Class)
