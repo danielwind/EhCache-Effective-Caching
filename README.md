@@ -1,4 +1,4 @@
-#EhCache How To: Effective Caching
+#EhCache Effective Caching: How To
 
 
 ##Book Source Code
