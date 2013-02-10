@@ -1,0 +1,208 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>net.danielwind.effcaching</groupId>
+  <artifactId>recipe9</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <!-- Project Properties -->
+  <properties>
+		<spring.version>3.1.0.RELEASE</spring.version>
+		<junit.version>4.11</junit.version>
+		<jdk.version>1.7</jdk.version>
+		<ehcache.version>2.6.0</ehcache.version>
+		<melody.version>1.32.1</melody.version>
+		<log4j.version>1.2.17</log4j.version>
+		<tomcat.version>7.0.34</tomcat.version>
+  </properties>
+  
+  <!--Project Information -->
+  <name>Recipe 9</name>
+  <description>EhCache Monitoring and Logging</description>
+  <url>https://github.com/danielwind/EhCache-Effective-Caching</url>
+  <inceptionYear>2013</inceptionYear>
+  <licenses>
+  	<license>
+  		<name>The MIT License (MIT) Copyright (c) 2012</name>
+  		<url>http://opensource.org/licenses/MIT</url>
+  		<distribution>repository</distribution>
+  		<comments>Open Source Distribution License</comments>
+  	</license>
+  </licenses>
+  <organization>
+  	<name>PacktPub Editorial</name>
+  	<url>http://www.packtpub.com</url>
+  </organization>
+  <developers>
+  	<developer>
+  		<id>daniel.wind</id>
+  		<name>Daniel Wind</name>
+  		<email>daniel.wind.m@gmail.com</email>
+  		<url>http://www.danielwind.net</url>
+  		<roles>
+  			<role>Architect</role>
+  			<role>Educator</role>
+  		</roles>
+  	</developer>
+  </developers>
+  <scm>
+    <connection>scm:git@github.com:danielwind/EhCache-Effective-Caching.git</connection>
+    <developerConnection>scm:git@github.com:danielwind/EhCache-Effective-Caching.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/danielwind/EhCache-Effective-Caching</url>
+  </scm>
+  <build>
+  <finalName>recipe9</finalName>
+   <plugins>
+	   <plugin>
+	    <artifactId>maven-compiler-plugin</artifactId>
+	    <version>3.0</version>
+	    <configuration>
+	      <source>${jdk.version}</source>
+	      <target>${jdk.version}</target>
+	    </configuration>
+	   </plugin>
+	   <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>appassembler-maven-plugin</artifactId>
+            <version>1.1.1</version>
+            <configuration>
+                <assembleDirectory>target</assembleDirectory>
+                <programs>
+                    <program>
+                        <mainClass>net.danielwind.effcaching.chapter9.launch.Main</mainClass>
+                        <name>webapp</name>
+                    </program>
+                </programs>
+            </configuration>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals>
+                        <goal>assemble</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+   </plugins>
+  </build>
+  <dependencies>
+  	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>${junit.version}</version>
+		<scope>test</scope>
+	</dependency>
+  	<dependency>
+  		<groupId>net.sf.ehcache</groupId>
+  		<artifactId>ehcache</artifactId>
+  		<version>${ehcache.version}</version>
+  		<type>pom</type>
+  	</dependency>
+  	<dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.6.1</version>
+        <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-jdk14</artifactId>
+        <version>1.6.1</version>
+        <scope>compile</scope>
+    </dependency>
+    <!-- Spring 3 dependencies -->
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-core</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	
+	<dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-context-support</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+    <!-- Log4J -->
+  	<dependency>
+		<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>${log4j.version}</version>
+	</dependency>
+	<!-- Java Melody -->
+	<dependency>
+		<groupId>net.bull.javamelody</groupId>
+		<artifactId>javamelody-core</artifactId>
+		<version>${melody.version}</version>
+	</dependency>
+	<!-- iText, PDF export -->
+    <dependency>
+            <groupId>com.lowagie</groupId>
+            <artifactId>itext</artifactId>
+            <version>2.1.7</version>
+            <exclusions>
+                    <exclusion>
+                            <artifactId>bcmail-jdk14</artifactId>
+                            <groupId>bouncycastle</groupId>
+                    </exclusion>
+                    <exclusion>
+                            <artifactId>bcprov-jdk14</artifactId>
+                            <groupId>bouncycastle</groupId>
+                    </exclusion>
+                    <exclusion>
+                            <artifactId>bctsp-jdk14</artifactId>
+                            <groupId>bouncycastle</groupId>
+                    </exclusion>
+            </exclusions>
+    </dependency>
+    <!-- embedded tomcat -->
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-core</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-logging-juli</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat.embed</groupId>
+        <artifactId>tomcat-embed-jasper</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-jasper</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-jasper-el</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.apache.tomcat</groupId>
+        <artifactId>tomcat-jsp-api</artifactId>
+        <version>${tomcat.version}</version>
+    </dependency>         
+  </dependencies>
+</project>

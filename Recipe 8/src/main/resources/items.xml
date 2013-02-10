@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+	<item>
+		<id>1</id>
+		<category>Sandwiches</category>
+		<description>Ham & Cheese Sandwich</description>
+		<image>ham_cheese_sandwich.png</image>
+		<price>5.30</price>
+	</item>
+	
+	<item>
+		<id>2</id>
+		<category>Sandwiches</category>
+		<description>Pinto Sandwich</description>
+		<image>pinto_sandwich.png</image>
+		<price>4.30</price>
+	</item>
+	
+	<item>
+		<id>3</id>
+		<category>Beverages</category>
+		<description>Dan Mineral Water</description>
+		<image>dan_water.png</image>
+		<price>1.20</price>
+	</item>
+</items>
