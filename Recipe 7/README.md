@@ -1,6 +1,6 @@
 ####EhCache Effective Caching: How-To
 ##Recipe 7 (Custom Eviction Algorithm)
----
+
 In this recipe you will be shown how to create and implement an EhCache custom eviction algorithm. Eviction algorithms are used to determine when to evict (or simply "eject") an element from the Cache Layer. There are built-in algorithms already in EhCache that you can certainly reuse, namely:
 
 - LRU (Least Recently Used, this is the default)
