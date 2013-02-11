@@ -1,0 +1,12 @@
+[
+	{"make":"Hyundai", "model":"Elantra", "color":"Cooper"},
+	{"make":"Honda", "model":"Accord", "color":"White"},
+	{"make":"Ford", "model":"Mustang", "color":"Blue"},
+	{"make":"Volkswagen", "model":"Jetta", "color":"Red"},
+	{"make":"Mercedes Benz", "model":"A-Class", "color":"Gray"},
+	{"make":"Audi", "model":"A6", "color":"Black"},
+	{"make":"Volvo", "model":"C70", "color":"Wine Red"},
+	{"make":"Ferrari", "model":"Testarossa", "color":"Yellow"},
+	{"make":"Toyota", "model":"Rav-4", "color":"Purple"},
+	{"make":"Mazda", "model":"Mazda 6", "color":"Light Blue"}	
+]
