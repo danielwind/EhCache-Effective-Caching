@@ -42,6 +42,9 @@ public final class Main {
 		//update car
 		cache.updateElementInCache(4, "color", "Yellow");
 		
+		//generate exception
+		cache.generateException();
+		
 		//remove all
 		cache.removeAllElementsInCache();
 	}

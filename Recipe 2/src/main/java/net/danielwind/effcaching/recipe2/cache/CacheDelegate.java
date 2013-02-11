@@ -5,9 +5,11 @@ import java.util.List;
 import net.danielwind.effcaching.recipe2.domain.Car;
 import net.danielwind.effcaching.recipe2.exceptions.CacheDelegateExceptionHandler;
 import net.danielwind.effcaching.recipe2.listeners.CacheDelegateEventListener;
+import net.sf.ehcache.CacheException;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
+import net.sf.ehcache.exceptionhandler.ExceptionHandlingDynamicCacheProxy;
 
 import org.apache.log4j.Logger;
 
@@ -34,6 +36,10 @@ public final class CacheDelegate {
 		
 		//set our custom exception handler
 		cache.setCacheExceptionHandler(new CacheDelegateExceptionHandler());
+		Ehcache proxiedCache = ExceptionHandlingDynamicCacheProxy.createProxy(cache);
+		
+		//replace default with decorated cache
+		manager.replaceCacheWithDecoratedCache(cache, proxiedCache);
 	}
 	
 	/**
@@ -100,5 +106,13 @@ public final class CacheDelegate {
 	 */
 	public void removeAllElementsInCache() {
 		cache.removeAll();
+	}
+	
+	/**
+	 * Simulates an exception during a cache method
+	 * execution. Invalid key.
+	 */
+	public void generateException() {
+		cache.getCacheExceptionHandler().onException(cache, 100, new CacheException());
 	}
 }
