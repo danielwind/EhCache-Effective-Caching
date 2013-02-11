@@ -3,7 +3,6 @@
   <groupId>net.danielwind.effcaching</groupId>
   <artifactId>recipe1</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
   
   <!-- Project Properties -->
   <properties>
@@ -53,10 +52,18 @@
    <plugins>
 	   <plugin>
 	    <artifactId>maven-compiler-plugin</artifactId>
-	    <version>3.0</version>
+	    <version>2.0.2</version>
 	    <configuration>
 	      <source>${jdk.version}</source>
 	      <target>${jdk.version}</target>
+	    </configuration>
+	   </plugin>
+	   <plugin>
+	    <groupId>org.codehaus.mojo</groupId>
+	    <artifactId>exec-maven-plugin</artifactId>
+	    <version>1.2.1</version>
+	    <configuration>
+	      <mainClass>net.danielwind.effcaching.recipe1.impl.Main</mainClass>
 	    </configuration>
 	   </plugin>
    </plugins>
@@ -75,20 +82,11 @@
   		<version>${ehcache.version}</version>
   		<type>pom</type>
   	</dependency>
-
   	<dependency>
         <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.6.1</version>
-        <scope>compile</scope>
-    </dependency>
-
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-jdk14</artifactId>
-        <version>1.6.1</version>
-        <scope>compile</scope>
-    </dependency>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.2</version>
+    </dependency>   
     <!-- Log4J -->
   	<dependency>
 		<groupId>log4j</groupId>

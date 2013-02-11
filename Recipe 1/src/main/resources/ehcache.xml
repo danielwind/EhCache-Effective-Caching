@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="ehcache.xsd"
-         updateCheck="false" 
-         monitoring="off"
-         dynamicConfig="true">
+         updateCheck="false" monitoring="off" dynamicConfig="false">
          
+         <!-- Uncomment if diskStore is desired --> 
+         <!--<diskStore path="java.io.tmpdir"/> -->
+         
+         <!-- Default Cache configuration (super configuration) -->
+           
+         <defaultCache maxEntriesLocalHeap="0"
+           			   eternal="false"
+                       timeToIdleSeconds="1200"
+                       timeToLiveSeconds="1200"/>
+         
+         <!-- Sample Cache => This cache has a maximum of 100 elements in memory. 
+         There is no overflow to disk, so 100 is also the maximum cache size.
+         -->
+         <cache name="objectCache"
+           maxEntriesLocalHeap="100"
+           eternal="true"
+           memoryStoreEvictionPolicy="FIFO"/>
          
 </ehcache>

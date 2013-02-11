@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<countryList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="countries.xsd">
+	<country>
+		<name>Costa Rica</name>
+		<language>Spanish</language>
+		<continent>America</continent>
+	</country>
+	<country>
+		<name>England</name>
+		<language>English</language>
+		<continent>Europe</continent>
+	</country>
+	<country>
+		<name>China</name>
+		<language>Mandarin</language>
+		<continent>Asia</continent>
+	</country>
+	<country>
+		<name>Japan</name>
+		<language>Japanese</language>
+		<continent>Asia</continent>
+	</country>
+	<country>
+		<name>Australia</name>
+		<language>English</language>
+		<continent>Australia</continent>
+	</country>
+	<country>
+		<name>Brazil</name>
+		<language>Portuguese</language>
+		<continent>America</continent>
+	</country>
+	<country>
+		<name>Nigeria</name>
+		<language>English</language>
+		<continent>Africa</continent>
+	</country>
+	<country>
+		<name>India</name>
+		<language>Hindi</language>
+		<continent>Asia</continent>
+	</country>
+	<country>
+		<name>Russia</name>
+		<language>Russian</language>
+		<continent>Eurasia</continent>
+	</country>
+	<country>
+		<name>United States</name>
+		<language>English</language>
+		<continent>America</continent>
+	</country>
+</countryList>
