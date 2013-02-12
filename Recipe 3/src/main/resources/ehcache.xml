@@ -5,5 +5,10 @@
          monitoring="off"
          dynamicConfig="true">
          
-         
+         <cache name="employeeCache"
+                maxElementsInMemory="50"
+                eternal="false"
+                overflowToDisk="false"
+                memoryStoreEvictionPolicy="LFU" />
+                
 </ehcache>

@@ -1,7 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:cache="http://www.springframework.org/schema/cache"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
@@ -10,26 +13,45 @@
         http://www.springframework.org/schema/context/spring-context-3.1.xsd
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://www.springmodules.org/schema/cache 
- 		http://www.springmodules.org/schema/cache/spring-cache.xsd">
+        http://www.springframework.org/schema/cache 
+ 		http://www.springframework.org/schema/cache/spring-cache.xsd
+ 		http://www.springframework.org/schema/jdbc 
+ 		http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+ 		http://www.springframework.org/schema/mvc
+ 		http://www.springframework.org/schema/mvc/spring-mvc.xsd">
  
-	<context:component-scan base-package="net.danielwind.effcaching.chapter9" />
+	<context:component-scan base-package="net.danielwind.effcaching.recipe3" />
 	
-	<cache:annotation-driven/>
+	<cache:annotation-driven />
+	
+	<mvc:annotation-driven />
+	
+	<!-- static content in Spring resource-->
+	<mvc:resources location="/resources/" mapping="/resources/**"/>
+	
+	<!-- default Servlet to enable static content -->
+	<mvc:default-servlet-handler />
+	
+	<!-- HSQLDB Embedded Database -->
+	<jdbc:embedded-database id="dataSource">
+		<jdbc:script location="classpath:schema.sql"/>
+		<jdbc:script location="classpath:data.sql"/>
+	</jdbc:embedded-database>
+
+	<!-- EhCache Cache Manager Bean -->
+ 	<bean id="cacheManager" name="cacheManager" 
+ 							class="org.springframework.cache.ehcache.EhCacheCacheManager" 
+ 							p:cache-manager-ref="ehcache"/>
 
 	<!-- EhCache configuration setup -->
-	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" p:config-location="ehcache.xml"/>
-	
-	<!-- EhCache Cache Manager Bean -->
- 	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhcacheCacheManager" p:cache-manager="ehcache"/>
+	<bean id="ehcache" name="ehcache" 
+					   class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" 
+					   p:config-location="classpath:ehcache.xml"
+					   p:shared="true"/>
  	
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
-			<value>/WEB-INF/assets/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
+	<bean id="viewResolver" name="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix"><value>/WEB-INF/pages/</value></property>
+		<property name="suffix"><value>.jsp</value></property>
 	</bean>
  
 </beans>
