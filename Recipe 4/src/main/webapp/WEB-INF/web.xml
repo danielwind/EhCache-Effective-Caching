@@ -1,31 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>Chapter 4 Web Application</display-name>
-  <filter>
-    <filter-name>SimplePageCachingFilter</filter-name>
-    <filter-class>net.sf.ehcache.constructs.web.filter.SimplePageCachingFilter</filter-class>
-  </filter>
+  
+  <display-name>Recipe 4</display-name>
+  	
+  	<!-- 
+  		 /////////////////////////////// FULL PAGE CACHE DEMO ////////////////////////////////////
+  		 
+  			NOTE: Filter chain needs to keep untouched. Struts Framework utilizes its default filter
+  			(StrutsPrepareAndExecuteFilter) and its URL pattern is mapped to intercept (/*). This is 
+  			casually the same we need for Full page cache mapping. If we were to put Struts filter
+  			first, our cache filter would never get executed (rule of thumb: always cache first). 
+  		
+  		//////////////////////////////////////////////////////////////////////////////////////////
+  	 -->
+  	
+  	<!-- EhCache Full Page Cache Filter -->
+	<filter>
+    	<filter-name>FullPageCachingFilter</filter-name>
+    	<filter-class>net.danielwind.effcaching.recipe4.cache.filters.FullPageCachingFilter</filter-class>
+   </filter>
+
   <filter-mapping>
-    <filter-name>SimplePageCachingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
+    <filter-name>FullPageCachingFilter</filter-name>
+    <url-pattern>/application/pageCache.action</url-pattern>
   </filter-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ApplicationServlet</display-name>
-    <servlet-name>ApplicationServlet</servlet-name>
-    <servlet-class>net.danielwind.effcaching.chapter4.servlets.ApplicationServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ApplicationServlet</servlet-name>
-    <url-pattern>/ApplicationServlet</url-pattern>
-  </servlet-mapping>
+  
+  <!-- EhCache Fragment Cache Filter -->
   <filter>
-    <display-name>ApplicationFilter</display-name>
-    <filter-name>ApplicationFilter</filter-name>
-    <filter-class>net.danielwind.effcaching.chapter4.filters.ApplicationFilter</filter-class>
+  	<filter-name>CustomPageFragmentCachingFilter</filter-name>
+  	<filter-class>net.danielwind.effcaching.recipe4.cache.filters.CustomPageFragmentCachingFilter</filter-class>
   </filter>
+  
   <filter-mapping>
-    <filter-name>ApplicationFilter</filter-name>
-    <url-pattern>/ApplicationFilter</url-pattern>
+    <filter-name>CustomPageFragmentCachingFilter</filter-name>
+    <url-pattern>/application/fragmentCache.action</url-pattern>
   </filter-mapping>
+  
+  <!-- Struts Filter -->
+  <filter>
+	<filter-name>struts2</filter-name>
+	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  </filter> 
+
+  <filter-mapping>
+	<filter-name>struts2</filter-name>
+	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+	
+  
 </web-app>

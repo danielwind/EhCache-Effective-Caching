@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+ 
+	<package name="application" namespace="/application" extends="struts-default">
+		
+		<!-- Full Page Caching Action -->
+		<action name="pageCache" class="net.danielwind.effcaching.recipe4.action.FullPageAction">
+			<result name="success">pages/page.jsp</result>
+		</action>
+		
+		<!-- Web Fragment Caching Action -->
+		<action name="fragmentCache" class="net.danielwind.effcaching.recipe4.action.FragmentAction">
+			<result name="success">pages/fragment.jsp</result>
+		</action>
+	
+	</package>
+ 
+</struts>

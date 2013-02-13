@@ -5,13 +5,22 @@
          monitoring="off"
          dynamicConfig="true">
          
-    <cache name="SimplePageCachingFilter"
+    <cache name="FullPageCachingFilter"
            maxEntriesLocalHeap="10000"
            maxElementsOnDisk="1000"
            eternal="false"
            overflowToDisk="true"
            timeToIdleSeconds="300"
            timeToLiveSeconds="600"
-           memoryStoreEvictionPolicy="LFU"
-            />
+           memoryStoreEvictionPolicy="LFU"/>
+           
+    <cache name="CustomPageFragmentCachingFilter"
+		  maxEntriesLocalHeap="10000"
+           maxElementsOnDisk="1000"
+           eternal="false"
+           overflowToDisk="true"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LFU"/>
+		         
 </ehcache>

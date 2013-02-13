@@ -13,6 +13,7 @@
 		<ehcache.version>2.6.0</ehcache.version>
 		<log4j.version>1.2.17</log4j.version>
 		<jetty.version>6.1.10</jetty.version>
+		<struts.version>2.3.1.2</struts.version>
   </properties>
   
   <!--Project Information -->
@@ -95,20 +96,18 @@
 	   <artifactId>ehcache-web</artifactId>
 	   <version>2.0.4</version>
 	</dependency>
-
+	
   	<dependency>
         <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.6.1</version>
-        <scope>compile</scope>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>1.7.2</version>
     </dependency>
-
+    <!-- Struts 2 -->
     <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-jdk14</artifactId>
-        <version>1.6.1</version>
-        <scope>compile</scope>
-    </dependency>
+		<groupId>org.apache.struts</groupId>
+		<artifactId>struts2-core</artifactId>
+		<version>${struts.version}</version>
+	</dependency>
     <!-- Log4J -->
   	<dependency>
 		<groupId>log4j</groupId>
