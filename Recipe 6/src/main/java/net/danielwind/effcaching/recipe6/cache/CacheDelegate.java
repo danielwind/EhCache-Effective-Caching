@@ -183,6 +183,7 @@ public final class CacheDelegate {
 		
 		//add query criteria like: 'select {key, value} from Employee where salary >= ${@param salary} ORDER BY salary DESC'
 		query.addCriteria(attribute.gt(salary)).addOrderBy(attribute, Direction.DESCENDING);
+		query.includeKeys().includeValues();
 		
 		Results results = query.execute();
 		

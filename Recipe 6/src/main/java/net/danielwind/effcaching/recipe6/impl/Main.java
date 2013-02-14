@@ -48,8 +48,20 @@ public final class Main {
 		//Initiate Search Query Operations
 		log.info("The overall salary average is: " + cache.getSalaryAverage());
 		
+		
 		log.info("The total of employees in Engineering Dept. is: " + cache.getTotalEmployeesByDepartment("Engineering"));
 		
+		
 		log.info("Searching Employee By Social Sercurity Number: [" + cache.searchEmployeeBySocialNumber("078-07-1121") + "]");
+		
+		
+		log.info("********************************************************");
+		log.info("Retrieve all Employees with salary greater than 95,000: ");
+		List<Employee> emps = cache.searchBySalaryGreaterThan(95000);
+		
+		for(Employee employee : emps) {
+			log.info(employee.toString());
+		}
+		log.info("---------------------------------------------------------");
 	}
 }
