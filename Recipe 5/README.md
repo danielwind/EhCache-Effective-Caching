@@ -5,4 +5,9 @@ In this recipe you will be shown how to integrate EhCache in a Hibernate applica
 
 In our simple application, we will use Hibernate with embedded HSQLDB. We will exemplify how to configure EhCache as well as Hibernate to bind them together. Simplicity is used for academic purposes. Nevertheless, the same approach should be followed for complex enterprise applications.        
 
+###Instructions
+1. Import as maven project.
+2. Run -> Run configurations -> new Maven Build
+3. Base Directory:${workspace_loc:/recipe5} | Goals: clean exec:java
+
 #####Errata: [http://www.danielwind.net](http://www.danielwind.net/effcaching/errata)

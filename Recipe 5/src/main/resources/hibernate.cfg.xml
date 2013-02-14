@@ -6,33 +6,27 @@
 	
 	<session-factory>
 		
-		<property name="hibernate.connection.driver_class"></property>
-		<property name="hibernate.connection.url"></property>
-		<property name="hibernate.connection.username"></property>
+		<property name="hibernate.connection.driver_class">org.hsqldb.jdbcDriver</property>
+		<property name="hibernate.connection.url">jdbc:hsqldb:mem:recipe5</property>
+		<property name="hibernate.connection.username">sa</property>
 		<property name="hibernate.connection.password"></property>
-		<property name="hibernate.dialect"></property>
-		<property name="hibernate.default_schema"></property>
+		<property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
 		<property name="show_sql">true</property>
 		
-		<!--------------------------------------------------
-		 Force Hibernate to use CacheManager Singleton 
-		 --------------------------------------------------->
-		<property name="hibernate.cache.region.factory_class">
-        	 net.sf.ehcache.hibernate.SingletonEhCacheRegionFactory
-        </property>
+		<!-- use EhCache provider -->
+		<property name="cache.provider_class">net.sf.ehcache.hibernate.EhCacheProvider</property>
         
-        <!--------------------------------------------------
-         Enable Hibernate Second Level Cache (default = false)
-         -------------------------------------------------->
+        <!-- Enable table auto generation -->
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        
+        <!-- Enable Hibernate Second Level Cache (default = false) -->
         <property name="hibernate.cache.use_second_level_cache">true</property>
 		
-		<!-------------------------------------------------- 
-		 Enable Hibernate Query Cache (default = false) 
-		 --------------------------------------------------->
+		<!-- Enable Hibernate Query Cache (default = false) -->
 		<property name="hibernate.cache.use_query_cache">true</property>
 		
 		<!-- MAPPINGS -->
-		<mapping resource="net/danielwind/effcaching/recipe5/persistence/movies/"></mapping>
+		<mapping class="net.danielwind.effcaching.recipe5.model.MovieEntity"></mapping>
 		
 	</session-factory>
 	

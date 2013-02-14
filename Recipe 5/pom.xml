@@ -4,6 +4,18 @@
   <artifactId>recipe5</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <!-- Project Properties -->
+  <properties>
+		<junit.version>4.11</junit.version>
+		<jdk.version>1.7</jdk.version>
+		<ehcache.version>2.6.0</ehcache.version>
+		<log4j.version>1.2.17</log4j.version>
+		<slf4j.version>1.7.2</slf4j.version>
+		<hsqldb.version>1.8.0.10</hsqldb.version>
+		<javassist.version>3.12.1.GA</javassist.version>
+		<hibernate.version>3.6.3.Final</hibernate.version>
+  </properties>
+  
   <!--Project Information -->
   <name>Recipe 5</name>
   <description>EhCache Hibernate Second Level Caching</description>
@@ -52,60 +64,67 @@
 	   <plugin>
 	    <groupId>org.codehaus.mojo</groupId>
 	    <artifactId>exec-maven-plugin</artifactId>
+	    <version>1.2.1</version>
 	    <configuration>
-	      <mainClass>net.danielwind.effcaching.chapter5.impl.Main</mainClass>
+	      <mainClass>net.danielwind.effcaching.recipe5.main.Main</mainClass>
 	    </configuration>
 	   </plugin>
    </plugins>
   </build>
   
-  <!-- JBoss repository for Hibernate -->
   <repositories>
+  	<!-- JBoss repository for Hibernate -->
 	<repository>
 		<id>JBoss repository</id>
 		<url>http://repository.jboss.org/nexus/content/groups/public/</url>
 	</repository>
+	
+	<!-- Terracotta Releases Repository -->
+	<repository>
+   		<id>terracotta-releases</id>
+   		<url>http://www.terracotta.org/download/reflector/releases</url>
+   		<releases><enabled>true</enabled></releases>
+   		<snapshots><enabled>false</enabled></snapshots>
+	</repository>
+	
   </repositories>
   
   <dependencies>
   
   	<dependency>
   		<groupId>net.sf.ehcache</groupId>
-  		<artifactId>ehcache</artifactId>
-  		<version>2.6.0</version>
-  		<type>pom</type>
+  		<artifactId>ehcache-core</artifactId>
+  		<version>${ehcache.version}</version>
   	</dependency>
   	
   	<dependency>
         <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.6.1</version>
-        <scope>compile</scope>
-    </dependency>
-    
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-jdk14</artifactId>
-        <version>1.6.1</version>
-        <scope>compile</scope>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j.version}</version>
     </dependency>
     
   	<dependency>
 		<groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
-		<version>1.2.17</version>
+		<version>${log4j.version}</version>
 	</dependency>
-	
+	<!-- HSQLDB Embedded -->
 	<dependency>
 		<groupId>hsqldb</groupId>
 		<artifactId>hsqldb</artifactId>
-		<version>1.8.0.10</version>
+		<version>${hsqldb.version}</version>
 	</dependency> 
 	<!-- Hibernate framework -->
 	<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>3.6.3.Final</version>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>${hibernate.version}</version>
+	</dependency>
+	<!-- Javassist -->
+	<dependency>
+		<groupId>javassist</groupId>
+		<artifactId>javassist</artifactId>
+		<version>${javassist.version}</version>
 	</dependency>
 	    
   </dependencies>
