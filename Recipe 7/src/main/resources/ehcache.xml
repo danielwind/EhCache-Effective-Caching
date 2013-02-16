@@ -4,8 +4,14 @@
          updateCheck="false" 
          monitoring="off"
          dynamicConfig="true"> 
-         
-	<cache name="employeeCache" maxElementsInMemory="100" eternal="true" overflowToDisk="false">
-	</cache>
+  	
+  	<!-- store only 12 elements (see maxEntriesLocalHeap property) -->
+  	<cache name="personCache"
+           maxEntriesLocalHeap="12"
+           eternal="false"
+           overflowToDisk="false"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           statistics="true"/>
 	
 </ehcache>

@@ -4,6 +4,16 @@
   <artifactId>recipe7</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <!-- Project Properties -->
+  <properties>
+		<junit.version>4.11</junit.version>
+		<jdk.version>1.6</jdk.version>
+		<ehcache.version>2.6.0</ehcache.version>
+		<log4j.version>1.2.17</log4j.version>
+		<slf4j.version>1.7.2</slf4j.version>
+		<jackson.version>1.8.5</jackson.version>
+  </properties>
+  
   <!--Project Information -->
   <name>Recipe 7</name>
   <description>EhCache Custom Eviction Algorithm</description>
@@ -45,15 +55,16 @@
 	    <artifactId>maven-compiler-plugin</artifactId>
 	    <version>2.0.2</version>
 	    <configuration>
-	      <source>1.7</source>
-	      <target>1.7</target>
+	      <source>${jdk.version}</source>
+	      <target>${jdk.version}</target>
 	    </configuration>
 	   </plugin>
 	   <plugin>
 	    <groupId>org.codehaus.mojo</groupId>
 	    <artifactId>exec-maven-plugin</artifactId>
+	    <version>1.2.1</version>
 	    <configuration>
-	      <mainClass>net.danielwind.effcaching.chapter7.impl.Main</mainClass>
+	      <mainClass>net.danielwind.effcaching.recipe7.impl.Main</mainClass>
 	    </configuration>
 	   </plugin>
    </plugins>
@@ -62,25 +73,24 @@
   	<dependency>
   		<groupId>net.sf.ehcache</groupId>
   		<artifactId>ehcache</artifactId>
-  		<version>2.6.0</version>
+  		<version>${ehcache.version}</version>
   		<type>pom</type>
   	</dependency>
   	<dependency>
         <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.6.1</version>
-        <scope>compile</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-jdk14</artifactId>
-        <version>1.6.1</version>
-        <scope>compile</scope>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j.version}</version>
     </dependency>
   	<dependency>
 		<groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
-		<version>1.2.17</version>
-	</dependency>      
+		<version>${log4j.version}</version>
+	</dependency> 
+	<!-- Jackson Mapper -->
+	<dependency>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>${jackson.version}</version>
+	</dependency>     
   </dependencies>
 </project>

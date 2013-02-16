@@ -1,26 +1,39 @@
 package net.danielwind.effcaching.recipe7.domain;
 
-import org.apache.log4j.Logger;
+import java.io.Serializable;
 
-public final class Person {
+public final class Person implements Serializable {
 	
-	private static final Logger log = Logger.getLogger(Person.class);
+	private static final long serialVersionUID = 1L;
 	
 	private String firstName;
 	private String lastName;
 	private String email;
-	private String city;
-	private String state;
+	private String citizenship;
+	private String socialSecurity;
 	
-	public Person(String firstName, String lastName, String email, String city, String state) {
+	/**
+	 * Default Constructor (required)
+	 */
+	public Person() {
+		
+	}
+	
+	/**
+	 * Overloaded Constructor
+	 * @param firstName
+	 * @param lastName
+	 * @param email
+	 * @param citizenship
+	 * @param socialSecurity
+	 */
+	public Person(String firstName, String lastName, String email, String citizenship, String socialSecurity) {
 		
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
-		this.city = city;
-		this.state = state;
-		
-		log.info("Creating a Person instance " + this.toString());
+		this.citizenship = citizenship;
+		this.socialSecurity = socialSecurity;
 	}
 	
 	public String getFirstName() {
@@ -47,25 +60,38 @@ public final class Person {
 		this.email = email;
 	}
 	
-	public String getCity() {
-		return city;
+	public String getCitizenship() {
+		return citizenship;
 	}
-	
-	public void setCity(String city) {
-		this.city = city;
+
+	public void setCitizenship(String citizenship) {
+		this.citizenship = citizenship;
 	}
-	
-	public String getState() {
-		return state;
+
+	public String getSocialSecurity() {
+		return socialSecurity;
 	}
-	
-	public void setState(String state) {
-		this.state = state;
+
+	public void setSocialSecurity(String socialSecurity) {
+		this.socialSecurity = socialSecurity;
 	}
-	
+
 	@Override
 	public String toString() {
+		
 		StringBuilder sb = new StringBuilder();
+		
+		sb.append("[");
+		sb.append("firstName: " + this.firstName);
+		sb.append(",");
+		sb.append("lastName: " + this.lastName);
+		sb.append(",");
+		sb.append("email: " + this.email);
+		sb.append(",");
+		sb.append("citizenship: " + this.citizenship);
+		sb.append(",");
+		sb.append("socialSecurity: " + this.socialSecurity);
+		sb.append("]");
 		
 		return sb.toString();
 	}
