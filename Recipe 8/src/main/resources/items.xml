@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<items>
+<itemList>
 	<item>
 		<id>1</id>
 		<category>Sandwiches</category>
-		<description>Ham & Cheese Sandwich</description>
+		<description>Ham And Cheese Sandwich</description>
 		<image>ham_cheese_sandwich.png</image>
 		<price>5.30</price>
 	</item>
-	
 	<item>
 		<id>2</id>
 		<category>Sandwiches</category>
@@ -15,7 +14,6 @@
 		<image>pinto_sandwich.png</image>
 		<price>4.30</price>
 	</item>
-	
 	<item>
 		<id>3</id>
 		<category>Beverages</category>
@@ -23,4 +21,67 @@
 		<image>dan_water.png</image>
 		<price>1.20</price>
 	</item>
-</items>
+	<item>
+		<id>4</id>
+		<category>Sandwiches</category>
+		<description>Roast Beef Sandwich</description>
+		<image>beef_sandwich.png</image>
+		<price>4.35</price>
+	</item>
+	<item>
+		<id>5</id>
+		<category>Desserts</category>
+		<description>Key Lime Pie</description>
+		<image>key_lime_pie.png</image>
+		<price>2.30</price>
+	</item>
+	<item>
+		<id>6</id>
+		<category>Desserts</category>
+		<description>Red Velvet</description>
+		<image>red_velvet.png</image>
+		<price>2.30</price>
+	</item>
+	<item>
+		<id>7</id>
+		<category>Beverages</category>
+		<description>Coca-Cola</description>
+		<image>coke.png</image>
+		<price>0.99</price>
+	</item>
+	<item>
+		<id>8</id>
+		<category>Sandwiches</category>
+		<description>Spicey Turkey Sandwich</description>
+		<image>turkey_sandwich.png</image>
+		<price></price>
+	</item>
+	<item>
+		<id>9</id>
+		<category>Desserts</category>
+		<description>Panna Cotta</description>
+		<image>panna_cotta.png</image>
+		<price>1.20</price>
+	</item>
+	<item>
+		<id>10</id>
+		<category>Salads</category>
+		<description>Gardener Salad</description>
+		<image>gardener_salad.png</image>
+		<price>3.50</price>
+	</item>
+	<item>
+		<id>11</id>
+		<category>Salads</category>
+		<description>Cacciatore Chicken Salad</description>
+		<image>cacciatore_salad.png</image>
+		<price>4.00</price>
+	</item>
+	<item>
+		<id>12</id>
+		<category>Salads</category>
+		<description>Caesar Salad</description>
+		<image>caesar_salad.png</image>
+		<price>3.00</price>
+	</item>
+</itemList>

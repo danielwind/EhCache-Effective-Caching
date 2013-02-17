@@ -4,9 +4,23 @@
   <artifactId>recipe8</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  <!-- Project Properties -->
+  <properties>
+		<junit.version>4.11</junit.version>
+		<jdk.version>1.6</jdk.version>
+		<ehcache.version>2.6.0</ehcache.version>
+		<ehcache.server.version>1.0.0</ehcache.server.version>
+		<log4j.version>1.2.17</log4j.version>
+		<slf4j.version>1.7.2</slf4j.version>
+		<httpclient.version>4.1.1</httpclient.version>
+		<commons.version>2.2</commons.version>
+		<ant.plugin.version>1.5</ant.plugin.version>
+		<tomcat.home><![CDATA[/Users/danielwind/tomcat]]></tomcat.home>
+  </properties>
+  
   <!--Project Information -->
   <name>Recipe 8</name>
-  <description>Out Of Process Caching with EhCache Server</description>
+  <description>Out-Of-Process Caching with EhCache Server</description>
   <url>https://github.com/danielwind/EhCache-Effective-Caching</url>
   <inceptionYear>2013</inceptionYear>
   <licenses>
@@ -42,55 +56,65 @@
   <build>
    <plugins>
 	   <plugin>
-	    <artifactId>maven-compiler-plugin</artifactId>
-	    <version>2.0.2</version>
-	    <configuration>
-	      <source>1.7</source>
-	      <target>1.7</target>
-	    </configuration>
+		    <artifactId>maven-compiler-plugin</artifactId>
+		    <version>2.0.2</version>
+		    <configuration>
+		      <source>${jdk.version}</source>
+		      <target>${jdk.version}</target>
+		    </configuration>
 	   </plugin>
 	   <plugin>
 	    <groupId>org.codehaus.mojo</groupId>
-	    <artifactId>exec-maven-plugin</artifactId>
-	    <configuration>
-	      <mainClass>net.danielwind.effcaching.chapter8.impl.Main</mainClass>
-	    </configuration>
+		    <artifactId>exec-maven-plugin</artifactId>
+		    <version>1.2.1</version>
+		    <configuration>
+		      <mainClass>net.danielwind.effcaching.recipe8.impl.Main</mainClass>
+		    </configuration>
 	   </plugin>
+	   <plugin>
+	   		<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-antrun-plugin</artifactId>
+			<version>${ant.plugin.version}</version>
+	        <configuration>
+	            <target>
+	            	<echo message="Copying ehcache-server.war in remote Tomcat"/>
+	                <copy file="src/main/resources/ehcache.war" tofile="${tomcat.home}/webapps/ehcache.war" />
+	                
+	            	<echo message="Starting Tomcat server..."/>
+	            	<exec executable="${tomcat.home}/bin/startup.sh" failonerror="true"/>
+	            </target>
+	        </configuration>
+	    </plugin>	
    </plugins>
   </build>
   <dependencies>
   	<dependency>
   		<groupId>net.sf.ehcache</groupId>
   		<artifactId>ehcache</artifactId>
-  		<version>2.6.0</version>
+  		<version>${ehcache.version}</version>
   		<type>pom</type>
   	</dependency>
+  	   
   	<dependency>
         <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.6.1</version>
-        <scope>compile</scope>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j.version}</version>
     </dependency>
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-jdk14</artifactId>
-        <version>1.6.1</version>
-        <scope>compile</scope>
-    </dependency>
+    
   	<dependency>
 		<groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
-		<version>1.2.17</version>
+		<version>${log4j.version}</version>
 	</dependency>
 	<dependency>
 		<groupId>org.apache.httpcomponents</groupId>
 		<artifactId>httpclient</artifactId>
-		<version>4.1.1</version>
+		<version>${httpclient.version}</version>
 	</dependency>
 	<dependency>
 		<groupId>commons-lang</groupId>
 		<artifactId>commons-lang</artifactId>
-		<version>2.2</version>
-	</dependency>      
+		<version>${commons.version}</version>
+	</dependency>     
   </dependencies>
 </project>

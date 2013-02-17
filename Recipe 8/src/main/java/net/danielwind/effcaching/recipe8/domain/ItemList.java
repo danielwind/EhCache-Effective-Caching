@@ -11,12 +11,16 @@ public final class ItemList {
 	@XmlElement(name="item")
 	private List<Item> itemList;
 
-	public List<Item> getItemList() {
+	public List<Item> getItems() {
 		return itemList;
 	}
 
-	public void setItemList(List<Item> itemList) {
+	public void setItems(List<Item> itemList) {
 		this.itemList = itemList;
+	}
+	
+	public void clear() {
+		this.itemList.clear();
 	}
 
 }
