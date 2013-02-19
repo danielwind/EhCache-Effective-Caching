@@ -1,24 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
-  <display-name>Chapter 9 (EhCache Monitoring and Logging)</display-name>
-  <servlet>
-    <servlet-name>mvc-dispatcher</servlet-name>
-    <servlet-class>
-			org.springframework.web.servlet.DispatcherServlet
-		</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>mvc-dispatcher</servlet-name>
-    <url-pattern>/</url-pattern>
-  </servlet-mapping>
-  <context-param>
-    <param-name>contextConfigLocation</param-name>
-    <param-value>/WEB-INF/mvc-dispatcher-servlet.xml</param-value>
-  </context-param>
-  <listener>
-    <listener-class>
-			org.springframework.web.context.ContextLoaderListener
-		</listener-class>
-  </listener>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+	<display-name>Recipe 9 :: EhCache Monitoring And Logging</display-name>
+ 
+	<filter>
+		<filter-name>wicket.wicketTest</filter-name>
+		<filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
+		<init-param>
+			<param-name>applicationClassName</param-name>
+			<param-value>net.danielwind.effcaching.recipe9.RecipeApplication</param-value>
+		</init-param>
+	</filter>
+ 
+	<filter-mapping>
+		<filter-name>wicket.wicketTest</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+ 
+	<listener>
+		<listener-class>
+              org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+	</listener>
+ 
+	<context-param>
+          <param-name>contextConfigLocation</param-name>
+          <param-value>
+                classpath:net/bull/javamelody/monitoring-spring.xml
+                /WEB-INF/applicationContext.xml
+          </param-value>
+    </context-param>
+	
 </web-app>

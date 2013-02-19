@@ -1,13 +1,15 @@
 package net.danielwind.effcaching.recipe9.domain;
 
-public class Employee {
+public final class Employee {
 
 	private long id;
+	private long salary;
+	
+	private String role;
 	private String firstName;
 	private String lastName;
-	private String email;
 	private String department;
-	private Double salary;
+	
 	
 	public long getId() {
 		return id;
@@ -33,14 +35,6 @@ public class Employee {
 		this.lastName = lastName;
 	}
 	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
 	public String getDepartment() {
 		return department;
 	}
@@ -49,11 +43,19 @@ public class Employee {
 		this.department = department;
 	}
 	
-	public Double getSalary() {
+	public String getRole() {
+		return role;
+	}
+	
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
+	public long getSalary() {
 		return salary;
 	}
 	
-	public void setSalary(Double salary) {
+	public void setSalary(long salary) {
 		this.salary = salary;
 	}
 	
@@ -61,16 +63,17 @@ public class Employee {
 	public String toString() {
 		
 		StringBuilder sb = new StringBuilder();
+		
 		sb.append("[");
-		sb.append("Employee ID: " + this.id);
+		sb.append("ID: " + this.id);
 		sb.append(",");
 		sb.append("First Name: " + this.firstName);
 		sb.append(",");
 		sb.append("Last Name: " + this.lastName);
 		sb.append(",");
-		sb.append("Email: " + this.email);
-		sb.append(",");
 		sb.append("Department: " + this.department);
+		sb.append(",");
+		sb.append("Role: " + this.role);
 		sb.append(",");
 		sb.append("Salary: " + this.salary);
 		sb.append("]");
