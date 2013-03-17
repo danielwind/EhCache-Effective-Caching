@@ -2,13 +2,19 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="ehcache.xsd"
          updateCheck="false" 
-         monitoring="off"
+         monitoring="autodetect"
          dynamicConfig="true"> 
     
     <!-- DEFAULT CACHE -->     
     <defaultCache maxElementsInMemory="500" eternal="true" overflowToDisk="false" memoryStoreEvictionPolicy="LFU" />     
          
-	<cache name="employeeCache" maxElementsInMemory="500" eternal="true" overflowToDisk="false" memoryStoreEvictionPolicy="LFU">
-		
+	<cache name="applicationCache" maxElementsInMemory="500" eternal="false" overflowToDisk="false" timeToIdleSeconds="3600" timeToLiveSeconds="1800" memoryStoreEvictionPolicy="LFU">
+	    <!-- TERRACOTTA default scheme -->
+	    <terracotta/>
+	    
 	</cache>
+	
+	<!-- Three Nodes cluster (see pom tc-plugin configuration) -->
+	<terracottaConfig url="127.0.0.1:9510" />
+	
 </ehcache>

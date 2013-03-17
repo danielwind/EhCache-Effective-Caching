@@ -3,10 +3,21 @@
   <groupId>net.danielwind.effcaching</groupId>
   <artifactId>recipe11</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  
+  <properties>
+      <ehcache.version>2.6.0</ehcache.version>
+      <log4j.version>1.2.17</log4j.version>
+      <httpclient.version>4.1.1</httpclient.version>
+      <slf4j.version>1.7.2</slf4j.version>
+      <commons.version>2.2</commons.version>
+      <jackson.version>1.8.5</jackson.version>
+      <terracotta.version>5.4.0</terracotta.version>
+  </properties>
   
   <!--Project Information -->
   <name>Recipe 11</name>
-  <description>EhCache &amp; Terracotta Server Array</description>
+  <description>EhCache And Terracotta Server Array</description>
   <url>https://github.com/danielwind/EhCache-Effective-Caching</url>
   <inceptionYear>2013</inceptionYear>
   <licenses>
@@ -39,64 +50,128 @@
     <tag>HEAD</tag>
     <url>https://github.com/danielwind/EhCache-Effective-Caching</url>
   </scm>
+  
+  <repositories>
+	<repository>
+		<id>terracotta-repository</id>
+		<url>http://www.terracotta.org/download/reflector/snapshots
+		</url>
+		<releases>
+			<enabled>true</enabled>
+		</releases>
+		<snapshots>
+			<enabled>true</enabled>
+		</snapshots>
+	</repository>
+	<repository>
+		<id>terracotta-repository-2</id>
+		<url>http://www.terracotta.org/download/reflector/releases
+		</url>
+		<releases>
+			<enabled>true</enabled>
+		</releases>
+		<snapshots>
+			<enabled>true</enabled>
+		</snapshots>
+	</repository>
+	<repository>
+        <id>terracotta-repository-3</id>
+        <name>Terracotta repository for Maven</name>
+        <url>https://oss.sonatype.org/content/repositories/sourceforge-releases/</url>
+        <releases>
+           <enabled>true</enabled>
+       </releases>
+    </repository>
+</repositories>
+  
+  <pluginRepositories>
+	   <pluginRepository>
+	       <id>terracotta-snapshots</id>
+	       <url>http://www.terracotta.org/download/reflector/maven2</url>
+	       <releases>
+	           <enabled>true</enabled>
+	       </releases>
+	       <snapshots>
+	           <enabled>true</enabled>
+	       </snapshots>
+	   </pluginRepository>
+	</pluginRepositories>   
+  
   <build>
    <plugins>
 	   <plugin>
 	    <artifactId>maven-compiler-plugin</artifactId>
 	    <version>2.0.2</version>
 	    <configuration>
-	      <source>1.7</source>
-	      <target>1.7</target>
+	      <source>1.6</source>
+	      <target>1.6</target>
 	    </configuration>
 	   </plugin>
+	   
 	   <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.7</version>
+        <executions>
+          <execution>
+            <configuration>
+             <tasks>
+                 <!-- Start Terracota Server -->
+                 <exec executable="${TERRACOTTA_HOME}/start-tc-server.sh" failonerror="true"/>
+                 
+                 <!-- Wait for 20 secs and load Terracotta dev console -->
+                 <waitfor maxwait="20" maxwaitunit="second">
+                     <exec executable="${TERRACOTTA_HOME}/dev-console.sh" failonerror="true"/>
+                 </waitfor>
+             </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      
+	  <plugin>
 	    <groupId>org.codehaus.mojo</groupId>
 	    <artifactId>exec-maven-plugin</artifactId>
+	    <version>1.2.1</version>
 	    <configuration>
 	      <mainClass>net.danielwind.effcaching.recipe11.impl.Main</mainClass>
 	    </configuration>
-	   </plugin>
-	   	<!-- Terracotta Maven Plugin -->
-	   <plugin>
-        <groupId>org.terracotta.maven.plugins</groupId>
-        <artifactId>tc-maven-plugin</artifactId>
-        <version>1.6.1</version>
-       </plugin>
+	   </plugin> 
    </plugins>
   </build>
   <dependencies>
+      
+    <dependency>
+		<groupId>org.terracotta</groupId>
+		<artifactId>terracotta-toolkit-1.6-runtime</artifactId>
+		<version>${terracotta.version}</version>
+	</dependency>   
+      
   	<dependency>
   		<groupId>net.sf.ehcache</groupId>
   		<artifactId>ehcache</artifactId>
-  		<version>2.6.0</version>
+  		<version>${ehcache.version}</version>
   		<type>pom</type>
   	</dependency>
   	<dependency>
         <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.6.1</version>
-        <scope>compile</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-jdk14</artifactId>
-        <version>1.6.1</version>
+        <artifactId>slf4j-log4j12</artifactId>
+        <version>${slf4j.version}</version>
         <scope>compile</scope>
     </dependency>
   	<dependency>
 		<groupId>log4j</groupId>
 		<artifactId>log4j</artifactId>
-		<version>1.2.17</version>
-	</dependency>
+		<version>${log4j.version}</version>
+	</dependency> 
+	<!-- Jackson Mapper -->
 	<dependency>
-		<groupId>org.apache.httpcomponents</groupId>
-		<artifactId>httpclient</artifactId>
-		<version>4.1.1</version>
+		<groupId>org.codehaus.jackson</groupId>
+		<artifactId>jackson-mapper-asl</artifactId>
+		<version>${jackson.version}</version>
 	</dependency>
-	<dependency>
-		<groupId>commons-lang</groupId>
-		<artifactId>commons-lang</artifactId>
-		<version>2.2</version>
-	</dependency>      
+	
   </dependencies>
 </project>

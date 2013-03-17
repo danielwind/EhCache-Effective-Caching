@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tc:tc-config xmlns:tc="http://www.terracotta.org/config"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.terracotta.org/schema/terracotta-4.xsd">
+
+  <servers>
+    <server host="127.0.0.1" name="localhost" bind="0.0.0.0">
+      <dso-port>9510</dso-port>
+      <jmx-port>9520</jmx-port>
+      <data>target/terracotta/server/data</data>
+      <logs>target/terracotta/server/logs</logs>
+      <statistics>target/terracotta/server/statistics</statistics>
+    </server>
+    <update-check>
+      <enabled>true</enabled>
+    </update-check>
+  </servers>
+  
+  <system>
+        <configuration-model>development</configuration-model>
+  </system>
+  
+  <clients>
+    <logs>target/terracotta/clients/logs/%(tc.nodeName)</logs>
+  </clients>
+  
+  <application>
+      <dso>
+          
+          <instrumented-classes>
+              <include>
+                  <class-expression>
+                      net.danielwind.effcaching.recipe11.domain.Message
+                  </class-expression>
+              </include>
+          </instrumented-classes>
+          <roots>
+              <root>
+                  <field-name>
+                      net.danielwind.effcaching.recipe11.cache.CacheDelegate.manager
+                  </field-name>
+              </root>
+          </roots>
+      </dso>
+  </application>    
+  
+</tc:tc-config>
