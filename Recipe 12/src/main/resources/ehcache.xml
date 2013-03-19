@@ -5,7 +5,6 @@
          monitoring="off"
          dynamicConfig="true"> 
     
-    <!-- DEFAULT CACHE -->     
-    <defaultCache maxElementsInMemory="500" eternal="true" overflowToDisk="false" memoryStoreEvictionPolicy="LFU" />     
-        
+    <cache name="applicationCache" maxElementsInMemory="500" eternal="true" overflowToDisk="false" memoryStoreEvictionPolicy="LFU"/>
+    
 </ehcache>

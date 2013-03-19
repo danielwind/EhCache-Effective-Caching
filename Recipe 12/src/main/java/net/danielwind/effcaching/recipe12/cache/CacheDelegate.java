@@ -1,0 +1,64 @@
+package net.danielwind.effcaching.recipe12.cache;
+
+import net.danielwind.effcaching.recipe12.domain.Message;
+import net.sf.ehcache.Cache;
+import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Element;
+
+import org.apache.log4j.Logger;
+
+public final class CacheDelegate {
+
+	private static final Logger log = Logger.getLogger(CacheDelegate.class);
+	private static final String EHCACHE_CONFIG_FILE = "ehcache.xml";
+	private static final String CACHE_NAME = "applicationCache";
+	
+	private CacheManager manager;
+	private Cache cache;
+	
+	public CacheDelegate() {
+		manager = new CacheManager(this.getClass().getClassLoader().getResourceAsStream(EHCACHE_CONFIG_FILE));
+		cache = manager.getCache(CACHE_NAME);
+	}
+	
+	/**
+	 * Saves a message in cache layer. Currently just one value.
+	 * @param message a Message object
+	 */
+	public void saveMessageInCache(Message message) {
+		
+		log.debug("--- Adding element to cache layer ---");
+		cache.put(new Element(message.getId(), message));
+	}
+	
+	/**
+	 * Reads a message from cache layer
+	 * @param id - The ID of the message to be retrieved
+	 * @return a Message instance
+	 */
+	public Message readMessage(String id) {
+		
+		Message message = null; 
+		
+		try {
+			
+			message = (Message) cache.get(id).getObjectValue();
+			
+		} catch(NullPointerException e) {
+			
+			log.error("Message is not in cache anymore");
+		}
+				
+		
+		return message;
+	}
+	
+	/**
+	 * Removes all messages from cache.
+	 */
+	public void clearCache() {
+		
+		cache.removeAll();
+	}
+	
+}
