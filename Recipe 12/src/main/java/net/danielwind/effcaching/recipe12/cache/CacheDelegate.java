@@ -1,9 +1,10 @@
 package net.danielwind.effcaching.recipe12.cache;
 
 import net.danielwind.effcaching.recipe12.domain.Message;
-import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
+import net.sf.ehcache.Ehcache;
 import net.sf.ehcache.Element;
+import net.sf.ehcache.constructs.blocking.BlockingCache;
 
 import org.apache.log4j.Logger;
 
@@ -14,11 +15,18 @@ public final class CacheDelegate {
 	private static final String CACHE_NAME = "applicationCache";
 	
 	private CacheManager manager;
-	private Cache cache;
+	private BlockingCache blockingCache;
+	private Ehcache cache;
 	
 	public CacheDelegate() {
+		
 		manager = new CacheManager(this.getClass().getClassLoader().getResourceAsStream(EHCACHE_CONFIG_FILE));
-		cache = manager.getCache(CACHE_NAME);
+		cache = manager.getEhcache(CACHE_NAME);
+		
+		blockingCache = new BlockingCache(cache);
+		
+		//replace default cache with decorated cache (Blocking Cache)
+		manager.replaceCacheWithDecoratedCache(cache, blockingCache);
 	}
 	
 	/**
@@ -28,7 +36,7 @@ public final class CacheDelegate {
 	public void saveMessageInCache(Message message) {
 		
 		log.debug("--- Adding element to cache layer ---");
-		cache.put(new Element(message.getId(), message));
+		blockingCache.put(new Element(message.getId(), message));
 	}
 	
 	/**
@@ -42,7 +50,7 @@ public final class CacheDelegate {
 		
 		try {
 			
-			message = (Message) cache.get(id).getObjectValue();
+			message = (Message) blockingCache.get(id).getObjectValue();
 			
 		} catch(NullPointerException e) {
 			
@@ -58,7 +66,7 @@ public final class CacheDelegate {
 	 */
 	public void clearCache() {
 		
-		cache.removeAll();
+		blockingCache.removeAll();
 	}
 	
 }
