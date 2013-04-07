@@ -28,7 +28,7 @@ Building The Recipe
 ```
 1. Import the project [File -> Import -> Maven -> Existing Maven Projects]
 2. Create a run configuration [Run -> Run Configurations… -> Maven Build -> New]
-3. Name the configuration "recipe1"
+3. Name the configuration "Recipe 1"
 4. Base directory [Browse Workspace… -> Recipe1] ${workspace_loc:/recipe1}
 5. Goals: exec:java
 6. Click on "Run" 
