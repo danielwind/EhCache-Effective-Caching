@@ -9,9 +9,30 @@ In this recipe you will be shown how to create and implement an EhCache custom e
 
 However, you can create your custom eviction policy by inheriting simple EhCache Abstraction classes. In our case, we will be creating our own policy for evicting elements.
 
-###Instructions
-1. Import as maven project
-2. Run -> Run Configurations -> new Maven Build
-3. Base Directory:${workspace_loc:/recipe7} | clean exec:java
+######Errata: [http://www.danielwind.net](http://www.danielwind.net/effcaching/errata)
 
-#####Errata: [http://www.danielwind.net](http://www.danielwind.net/effcaching/errata)
+
+Build Dependencies
+-------
+
+| Requirement      |  Version   |
+|------------------|:----------:|
+|  Apache Maven    |    3.x     |
+|  Java JDK        |    >= 6    |
+|  Eclipse         | >= Helios  |
+
+
+Building The Recipe
+-------
+```
+1. Import the project [File -> Import -> Maven -> Existing Maven Projects]
+2. Create a run configuration [Run -> Run Configurations… -> Maven Build -> New]
+3. Name the configuration "Recipe 7"
+4. Base directory [Browse Workspace… -> Recipe1] ${workspace_loc:/recipe7}
+5. Goals: exec:java
+6. Click on "Run" 
+```
+
+Example
+-------
+![image](https://raw.github.com/danielwind/resources/master/images/recipe7_eclipse.png) 
