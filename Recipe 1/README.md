@@ -33,3 +33,7 @@ Building The Recipe
 5. Goals: exec:java
 6. Click on "Run" 
 ```
+
+Example
+-------
+![image](https://raw.github.com/danielwind/resources/master/images/recipe1_eclipse.png)
